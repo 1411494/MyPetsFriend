@@ -1,4 +1,4 @@
-package utp.edu.pe.mypetsfriend;
+package utp.edu.pe.mypetsfriend.activities;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import utp.edu.pe.mypetsfriend.R;
 
 public class CustWelcomeActivity extends AppCompatActivity {
 
@@ -48,7 +50,7 @@ public class CustWelcomeActivity extends AppCompatActivity {
     }
 
     private class CustomAdapter extends FragmentPagerAdapter {
-        private String fragments[] = {"INFO","PETS", "SERVICES", "HISTORY"};
+        private String fragments[] = {"HOME","PETS", "SERVICES", "HISTORY"};
 
         public CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
             super(supportFragmentManager);
@@ -58,7 +60,7 @@ public class CustWelcomeActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FragCustInfo();
+                    return new FragCustHome();
                 case 1:
                     return new FragCustPetsList();
                 case 2:

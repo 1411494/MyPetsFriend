@@ -1,4 +1,4 @@
-package utp.edu.pe.mypetsfriend;
+package utp.edu.pe.mypetsfriend.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,15 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import utp.edu.pe.mypetsfriend.R;
+
 /**
- * Created by Marco on 01/11/2016.
+ * Created by Marco on 05/11/2016.
  */
 
-public class FragCustServiceAdd extends Fragment {
+public class FragAdmCustomer extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return  inflater.inflate(R.layout.frag_cust_service_add, container, false);
+        return inflater.inflate(R.layout.frag_adm_customer, container, false);
     }
+
 }
