@@ -5,6 +5,7 @@ package utp.edu.pe.mypetsfriend.services;
  */
 
 public class NewsService {
-    public static String USERS_URL = "http://192.168.0.103:8080/WsPetsFriend/webresources/users/list";
+    //public static String USERS_URL = "http://192.168.0.13:8080/WsPetsFriend/webresources/users/list";
+    public static String USERS_URL = "http://192.168.0.13:8080/WsPetsFriend/webresources/users/";
 
 }

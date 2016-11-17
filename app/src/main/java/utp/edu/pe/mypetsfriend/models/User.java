@@ -66,7 +66,7 @@ public class User {
         this.type = type;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 

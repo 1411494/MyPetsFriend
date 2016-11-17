@@ -19,6 +19,8 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.interfaces.ParsedRequestListener;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,7 @@ import utp.edu.pe.mypetsfriend.services.NewsService;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "LOGIN";
     private Button loginButton;
     private EditText userEditText;
     private EditText passwordEditText;
@@ -47,7 +50,31 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, CustWelcomeActivity.class));
+                AndroidNetworking.get( NewsService.USERS_URL + "login/" + userEditText.getText().toString() + " /" + passwordEditText.getText().toString() )
+                .setTag(this)
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsParsed(new TypeToken<User>() {}, new ParsedRequestListener<User>() {
+                    @Override
+                    public void onResponse(User user) {
+                        // do anything with response
+                        if ( user.getStatus() ){
+                            Log.d(TAG, "dni : " + user.getDni());
+                            Log.d(TAG, "username : " + user.getUser_name());
+                            Log.d(TAG, "type : " + user.getType());
+                            startActivity(new Intent(LoginActivity.this, CustWelcomeActivity.class));
+                        }
+                        else {
+                            //CODIGO DE ERROR PASSWORD
+                        }
+
+                    }
+                    @Override
+                    public void onError(ANError anError) {
+                        // handle error
+
+                    }
+                });
             }
         });
     }
